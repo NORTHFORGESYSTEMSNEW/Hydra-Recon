@@ -1,0 +1,5 @@
+pyfiglet
+dnspython
+requests
+python-whois
+beautifulsoup4
