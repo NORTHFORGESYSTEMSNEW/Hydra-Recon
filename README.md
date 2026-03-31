@@ -15,14 +15,14 @@
 
 ## Installation
 ```bash
-git clone https://github.com/yourusername/hydra-recon.git
-cd hydra-recon
+git clone https://github.com/NORTHFORGESYSTEMSNEW/Hydra-Recon.git
+cd Hydra-Recon
 pip install -r requirements.txt
 ```
 
 ## Usage
 ```bash
-python hydra_recon.py
+python Hydra_Recon.py
 ```
 
 ## Legal Disclaimer & Responsibility
