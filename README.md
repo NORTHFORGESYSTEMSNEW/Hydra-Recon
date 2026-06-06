@@ -10,8 +10,15 @@
 - **DNS Shadowing**: Recursive extraction of A, MX, NS, TXT, and SOA records.
 - **SSL Transparency Ghosting**: Extracts subdomains from public certificate logs (crt.sh).
 - **Network Topology**: Real-time ASN, ISP, and Geolocation mapping.
+- **Reverse DNS (PTR)**: Resolves the PTR record for the target IP.
+- **Surface Port Scanning**: Threaded probe of common service ports (FTP, SSH, HTTP, RDP, databases, ...).
 - **Infrastructure Fingerprinting**: Detection of Cloud providers (AWS, Cloudflare, GCP) and server stacks.
+- **WAF / CDN Detection**: Signature-based fingerprinting of shielding vendors (Cloudflare, Akamai, Sucuri, Imperva, Fastly, ...).
+- **HTTP Security Header Audit**: Flags missing HSTS, CSP, X-Frame-Options, and other hardening headers.
+- **Wayback Machine Recovery**: Pulls historical archived URLs from the Internet Archive CDX API.
 - **Security Audit**: Automated discovery of robots.txt, security policies, and mail security (SPF/DMARC).
+- **JSON Report Export**: Save the full structured intelligence output to a file for later analysis.
+- **Scriptable CLI**: Run non-interactively with command-line flags for automation.
 
 ## Installation
 ```bash
@@ -21,9 +28,30 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+
+### Interactive mode
 ```bash
-python Hydra_Recon.py
+python hydra_recon.py
 ```
+
+### Scriptable (CLI) mode
+```bash
+# Full sweep against a target
+python hydra_recon.py -t example.com
+
+# Passive-only intelligence, no banner
+python hydra_recon.py -t example.com --mode passive --no-banner
+
+# Infrastructure modules and export a JSON report
+python hydra_recon.py -t example.com --mode infra -o report.json
+```
+
+| Flag | Description |
+|------|-------------|
+| `-t`, `--target` | Target domain (skips the interactive prompt). |
+| `-m`, `--mode` | Strategy to run: `passive`, `infra`, or `full` (default: `full`). |
+| `-o`, `--output` | Write a structured JSON report to the given path. |
+| `--no-banner` | Suppress the ASCII banner. |
 
 ## Legal Disclaimer & Responsibility
 **NorthForge Systems** and its developers assume **ZERO LIABILITY** for the use of this tool. 
